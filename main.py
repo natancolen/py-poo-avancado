@@ -19,15 +19,24 @@ class Programa():
     def dar_like(self):
         self._likes += 1
 
+    def imprimir(self):
+        return f'Nome: {self._nome} - Ano: {self.ano} - {self._likes} Likes'
+
 class Filme(Programa):
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano)
         self.duracao = duracao
 
+    def imprimir(self):
+        return f'Nome: {self._nome} - Ano: {self.ano} - {self.duracao} min - {self._likes} Likes'
+
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
+
+    def imprimir(self):
+        return f'Nome: {self._nome} - Ano: {self.ano} - {self.temporadas} Temporadas - {self._likes} Likes'
 
 if __name__ == '__main__':
     vingadores = Filme('vingadores - guerra infinita', 2018, 149)
@@ -39,7 +48,6 @@ if __name__ == '__main__':
 
     filmes_e_serie = [vingadores, monstro_pantano]
 
-    for programas in filmes_e_serie:
-        detalhe = programas.duracao if hasattr(programas, 'duracao') else programas.temporadas
-        print(f'{programas.nome} - {detalhe} D - {programas.likes}')
+    for programa in filmes_e_serie:
+        print(programa.imprimir())
 
