@@ -37,7 +37,9 @@ if __name__ == '__main__':
     monstro_pantano.dar_like()
     monstro_pantano.dar_like()
 
-    print(f' {vingadores.nome} - {vingadores.ano} - {vingadores.duracao} - {vingadores.likes}')
-    print(f' {monstro_pantano.nome} - {monstro_pantano.ano} - {monstro_pantano.temporadas} - {monstro_pantano.likes}')
+    filmes_e_serie = [vingadores, monstro_pantano]
 
+    for programas in filmes_e_serie:
+        detalhe = programas.duracao if hasattr(programas, 'duracao') else programas.temporadas
+        print(f'{programas.nome} - {detalhe} D - {programas.likes}')
 
