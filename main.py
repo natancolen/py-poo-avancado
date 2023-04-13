@@ -19,7 +19,7 @@ class Programa():
     def dar_like(self):
         self._likes += 1
 
-    def imprimir(self):
+    def __str__(self):
         return f'Nome: {self._nome} - Ano: {self.ano} - {self._likes} Likes'
 
 class Filme(Programa):
@@ -27,7 +27,7 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
-    def imprimir(self):
+    def __str__(self):
         return f'Nome: {self._nome} - Ano: {self.ano} - {self.duracao} min - {self._likes} Likes'
 
 class Serie(Programa):
@@ -35,19 +35,61 @@ class Serie(Programa):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
-    def imprimir(self):
+    def __str__(self):
         return f'Nome: {self._nome} - Ano: {self.ano} - {self.temporadas} Temporadas - {self._likes} Likes'
+class Playlist:
+    def __init__(self, nome, programas):
+        self.nome = nome
+        self.programas = programas
+
+    def tamanho(self):
+        return len(self.programas)
 
 if __name__ == '__main__':
+    hercules_disney = Filme('Hecules', 1997, 93)
+    homem_aranha_svpc = Filme('homem aranha - sem volta para casa', 2022, 148)
+    homem_de_ferro = Filme('Homem de Ferro', 2008, 126)
     vingadores = Filme('vingadores - guerra infinita', 2018, 149)
+    demolidor = Serie('Demolidor', 2016, 3)
     monstro_pantano = Serie('monstro do pantano', 2019, 1)
+    sobrenatural = Serie('Sobrenatural', 2006, 15)
 
+    hercules_disney.dar_like()
+    hercules_disney.dar_like()
+    hercules_disney.dar_like()
+    hercules_disney.dar_like()
+    homem_aranha_svpc.dar_like()
+    homem_aranha_svpc.dar_like()
+    homem_aranha_svpc.dar_like()
+    homem_aranha_svpc.dar_like()
+    homem_aranha_svpc.dar_like()
+    homem_de_ferro.dar_like()
+    homem_de_ferro.dar_like()
+    homem_de_ferro.dar_like()
+    homem_de_ferro.dar_like()
+    homem_de_ferro.dar_like()
     vingadores.dar_like()
+    vingadores.dar_like()
+    vingadores.dar_like()
+    vingadores.dar_like()
+    demolidor.dar_like()
+    demolidor.dar_like()
+    demolidor.dar_like()
+    demolidor.dar_like()
+    sobrenatural.dar_like()
+    sobrenatural.dar_like()
+    sobrenatural.dar_like()
+    sobrenatural.dar_like()
+    monstro_pantano.dar_like()
     monstro_pantano.dar_like()
     monstro_pantano.dar_like()
 
-    filmes_e_serie = [vingadores, monstro_pantano]
+    filmes_e_serie = [vingadores, monstro_pantano, hercules_disney, homem_aranha_svpc, homem_de_ferro, demolidor,sobrenatural]
 
-    for programa in filmes_e_serie:
-        print(programa.imprimir())
+    playlist_fim_de_semana = Playlist('Fim de semana', filmes_e_serie)
+
+    print(playlist_fim_de_semana.tamanho())
+
+    for programa in playlist_fim_de_semana.programas:
+        print(programa)
 
