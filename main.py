@@ -37,7 +37,7 @@ if __name__ == '__main__':
     monstro_pantano.dar_like()
     monstro_pantano.dar_like()
 
-    print(f'Filme: {vingadores.nome} - Ano: {vingadores.ano} - Duraçao: {vingadores.duracao} min - Likes: {vingadores.likes}')
-    print(f'Serie: {monstro_pantano.nome} - Ano: {monstro_pantano.ano} - Temporadas: {monstro_pantano.temporadas} - Likes: {monstro_pantano.likes}')
+    print(f' {vingadores.nome} - {vingadores.ano} - {vingadores.duracao} - {vingadores.likes}')
+    print(f' {monstro_pantano.nome} - {monstro_pantano.ano} - {monstro_pantano.temporadas} - {monstro_pantano.likes}')
 
 
