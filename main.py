@@ -49,12 +49,12 @@ class Playlist:
     def listagem(self):
         return self._programas
 
-    @property
-    def tamanho(self):
+    def __len__(self):
         return len(self._programas)
 
 
 if __name__ == '__main__':
+    aneis_do_poder = Serie('Aneis do poder', 2022, 1)
     hercules_disney = Filme('Hecules', 1997, 93)
     homem_aranha_svpc = Filme('homem aranha - sem volta para casa', 2022, 148)
     homem_de_ferro = Filme('Homem de Ferro', 2008, 126)
@@ -100,6 +100,6 @@ if __name__ == '__main__':
     for programa in playlist_fim_de_semana:
         print(programa)
 
-    print(f'Tamanho da playlist: {playlist_fim_de_semana.tamanho}')
+    print(aneis_do_poder in playlist_fim_de_semana)
 
-    print(demolidor in playlist_fim_de_semana)
+    print(f'Tamanho da playlist: {len(playlist_fim_de_semana)}')
