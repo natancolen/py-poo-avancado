@@ -37,13 +37,11 @@ class Serie(Programa):
 
     def __str__(self):
         return f'Nome: {self._nome} - Ano: {self.ano} - {self.temporadas} Temporadas - {self._likes} Likes'
-class Playlist:
+class Playlist(list):
     def __init__(self, nome, programas):
         self.nome = nome
-        self.programas = programas
+        super().__init__(programas)
 
-    def tamanho(self):
-        return len(self.programas)
 
 if __name__ == '__main__':
     hercules_disney = Filme('Hecules', 1997, 93)
@@ -86,10 +84,11 @@ if __name__ == '__main__':
 
     filmes_e_serie = [vingadores, monstro_pantano, hercules_disney, homem_aranha_svpc, homem_de_ferro, demolidor,sobrenatural]
 
-    playlist_fim_de_semana = Playlist('Fim de semana', filmes_e_serie)
+    playlist_fim_de_semana = Playlist('fim de semana', filmes_e_serie)
 
-    print(playlist_fim_de_semana.tamanho())
-
-    for programa in playlist_fim_de_semana.programas:
+    for programa in playlist_fim_de_semana:
         print(programa)
 
+    print(f'Tamanho da playlist: {len(playlist_fim_de_semana)}')
+
+    print(f'Ta ou nao ta? {demolidor in playlist_fim_de_semana}')
